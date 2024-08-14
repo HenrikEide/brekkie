@@ -28,17 +28,19 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className="text-4xl font-bold text-center">
-        Hello myes
+      <div>
+      <h1 className="text-5xl font-bold text-center mb-24 p-4 border-b-2">
+        Good Morning Bekfast bois
       </h1>
-      <div className="grid grid-cols-3 gap-4">
         {breakfasts.map((breakfast) => (
-          <div key={breakfast.id} className="bg-white p-4 shadow rounded">
-            <h2 className="text-lg font-bold">{breakfast.name}</h2>
+          <div key={breakfast.id} className="p-4 shadow rounded mb-8 bg-gray-900">
+            <h2 className="text-lg font-bold mb-4">{breakfast.name}</h2>
             <p>{breakfast.description}</p>
+            <p>Savory: {breakfast.savory.join(", ")}</p>
+            <p>Sweet: {breakfast.sweet.join(", ")}</p>
           </div>
         ))}
-      </div>
+        </div>
     </main>
   );
 }
