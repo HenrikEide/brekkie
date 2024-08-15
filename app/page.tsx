@@ -1,5 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
 
 export default function Home() {
 
@@ -35,14 +42,27 @@ export default function Home() {
         {breakfasts.length === 0 && (
           <p className="text-center">No breakfasts :(</p>
         )}
-        {breakfasts.map((breakfast) => (
-          <div key={breakfast.id} className="p-4 shadow rounded mb-8 bg-gray-900">
-            <h2 className="text-lg font-bold mb-4">{breakfast.name}</h2>
-            <p>{breakfast.description}</p>
-            <p>Savory: {breakfast.savory.join(", ")}</p>
-            <p>Sweet: {breakfast.sweet.join(", ")}</p>
-          </div>
-        ))}
+        <Accordion type="single" collapsible>
+          {breakfasts.map((breakfast) => (
+            <AccordionItem key={breakfast.id} value={breakfast.id} className="p-4 shadow rounded mb-8 bg-slate-800">
+              <AccordionTrigger>
+                <div >
+                  <h2>{breakfast.name}</h2>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <div>
+                  <p>{breakfast.description}</p> <br/>
+                  <p>Savory: {breakfast.savory.join(", ")}</p>
+                  <p>Sweet: {breakfast.sweet.join(", ")}</p> <br/>
+                  <p>Start Time: {breakfast.startDateTime}</p>
+                  <p>End Time: {breakfast.endDateTime}</p>
+                  <p>Last Modified: {breakfast.lastModifiedDateTime}</p>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
     </main>
   );
