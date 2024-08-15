@@ -6,6 +6,19 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { Button } from "@/components/ui/button";
+import DeleteIcon from '@mui/icons-material/Delete';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+  DialogClose
+} from "@/components/ui/dialog"
+
 
 
 export default function Home() {
@@ -33,6 +46,13 @@ export default function Home() {
   }
   , []);
 
+  const deleteBreakfast = (id: string) => {
+    fetch(`http://localhost:5286/breakfasts/${id}`, {
+      method: "DELETE",
+    });
+    setBreakfasts(breakfasts.filter((b) => b.id !== id));
+  }
+
   return (
       <>
         {breakfasts.length === 0 && (
@@ -44,6 +64,36 @@ export default function Home() {
               <AccordionTrigger>
                 <div >
                   <h2>{breakfast.name}</h2>
+                </div>
+                <div className="ml-auto mr-2">
+                  <Dialog>
+                    <DialogTrigger asChild>
+                    <Button size="icon" variant="ghost" onClick={(e) => e.stopPropagation()}>
+                      <DeleteIcon />
+                    </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle className="text-black">Delete Breakfast</DialogTitle>
+                      </DialogHeader>
+                      <DialogDescription className="my-6">
+                        Are you sure you want to delete this breakfast?
+                      </DialogDescription>
+                      <DialogFooter>
+                        <div className="flex justify-end space-x-4">
+                          <DialogClose asChild>
+                            <Button onClick={(e) => {
+                              deleteBreakfast(breakfast.id);
+                              e.stopPropagation()}}>Delete
+                            </Button>
+                          </DialogClose>
+                          <DialogClose asChild>
+                            <Button variant="secondary" onClick={(e) => e.stopPropagation()}>Cancel</Button>
+                          </DialogClose> 
+                        </div>
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
                 </div>
               </AccordionTrigger>
               <AccordionContent>
