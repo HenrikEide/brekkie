@@ -34,11 +34,7 @@ export default function Home() {
   , []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>
-        <h1 className="text-5xl font-bold text-center mb-24 p-4 border-b-2">
-          Good Morning Bekfast bois
-        </h1>
+      <>
         {breakfasts.length === 0 && (
           <p className="text-center">No breakfasts :(</p>
         )}
@@ -63,7 +59,6 @@ export default function Home() {
             </AccordionItem>
           ))}
         </Accordion>
-      </div>
-    </main>
+      </>
   );
 }

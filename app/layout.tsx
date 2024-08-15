@@ -16,7 +16,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+          <div>
+            <h1 className="text-5xl font-bold text-center mb-8 p-4 border-b-2">
+              Good Morning Bekfast bois
+            </h1>
+            <nav className="flex justify-center space-x-4 mb-12">
+              <a href="/" className="pr-12">
+                Breakfasts
+              </a>
+              <a href="/buildbreakfast" className="">
+                New Breakfast
+              </a>
+            </nav>
+            {children}
+          </div>
+        </main>
+      </body>
     </html>
   );
 }
