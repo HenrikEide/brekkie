@@ -29,9 +29,12 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div>
-      <h1 className="text-5xl font-bold text-center mb-24 p-4 border-b-2">
-        Good Morning Bekfast bois
-      </h1>
+        <h1 className="text-5xl font-bold text-center mb-24 p-4 border-b-2">
+          Good Morning Bekfast bois
+        </h1>
+        {breakfasts.length === 0 && (
+          <p className="text-center">No breakfasts :(</p>
+        )}
         {breakfasts.map((breakfast) => (
           <div key={breakfast.id} className="p-4 shadow rounded mb-8 bg-gray-900">
             <h2 className="text-lg font-bold mb-4">{breakfast.name}</h2>
@@ -40,7 +43,7 @@ export default function Home() {
             <p>Sweet: {breakfast.sweet.join(", ")}</p>
           </div>
         ))}
-        </div>
+      </div>
     </main>
   );
 }
