@@ -77,7 +77,7 @@ export default function Home() {
                         <DialogTitle className="text-black">Delete Breakfast</DialogTitle>
                       </DialogHeader>
                       <DialogDescription className="my-6">
-                        Are you sure you want to delete this breakfast?
+                        Are you sure you want to delete &quot;{breakfast.name}&quot;?
                       </DialogDescription>
                       <DialogFooter>
                         <div className="flex justify-end space-x-4">
