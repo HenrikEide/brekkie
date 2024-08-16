@@ -22,11 +22,11 @@ export default function RootLayout({
             <h1 className="text-5xl font-bold text-center mb-8 p-4 border-b-2">
               Good Morning Bekfast bois
             </h1>
-            <nav className="flex justify-center space-x-4 mb-12">
-              <a href="/brekkie" className="pr-12">
+            <nav className="flex justify-around space-x-4 mb-12">
+              <a href="/brekkie" className="hover:text-slate-600">
                 Breakfasts
               </a>
-              <a href="/brekkie/buildbreakfast" className="">
+              <a href="/brekkie/buildbreakfast" className="hover:text-slate-600">
                 New Breakfast
               </a>
             </nav>
