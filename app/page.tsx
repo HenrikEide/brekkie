@@ -40,9 +40,16 @@ export default function Home() {
     fetch("http://localhost:5286/breakfasts")
       .then((response) => response.json())
       .then((data) => {
-        setBreakfasts(data);
-      }
-    );
+      setBreakfasts(data);
+      })
+      .catch((error) => {
+      console.error("Failed to fetch breakfasts:", error);
+      fetch("beekfast.json")
+        .then((response) => response.json())
+        .then((data) => {
+          setBreakfasts(data);
+        });
+      });
   }
   , []);
 

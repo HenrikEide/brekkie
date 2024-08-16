@@ -46,9 +46,17 @@ export default function BreakfastForm() {
         fetch("http://localhost:5286/breakfasts", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
+            "Content-Type": "application/json",
             },
             body: JSON.stringify(fixedData),
+        })
+        .then(response => {
+            if (response.ok) {
+            window.location.reload();
+            }
+        }).catch((error) => {
+            console.error("Failed to create breakfast:", error);
+            alert("Failed to create breakfast. Backend not running, using local data");
         });
     };
 
