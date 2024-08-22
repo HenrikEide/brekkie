@@ -24,10 +24,10 @@ export default function RootLayout({
               Good Morning Bekfast bois
             </h1>
             <nav className="flex justify-around space-x-4 mb-12">
-              <Link href="/brekkie" className="hover:text-slate-600">
+              <Link href="/" className="hover:text-slate-600">
                 Breakfasts
               </Link>
-              <Link href="/brekkie/buildbreakfast" className="hover:text-slate-600">
+              <Link href="/buildbreakfast" className="hover:text-slate-600">
                 New Breakfast
               </Link>
             </nav>
