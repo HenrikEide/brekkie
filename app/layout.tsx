@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,12 +24,12 @@ export default function RootLayout({
               Good Morning Bekfast bois
             </h1>
             <nav className="flex justify-around space-x-4 mb-12">
-              <a href="/brekkie" className="hover:text-slate-600">
+              <Link href="/brekkie" className="hover:text-slate-600">
                 Breakfasts
-              </a>
-              <a href="/brekkie/buildbreakfast" className="hover:text-slate-600">
+              </Link>
+              <Link href="/brekkie/buildbreakfast" className="hover:text-slate-600">
                 New Breakfast
-              </a>
+              </Link>
             </nav>
             {children}
           </div>
